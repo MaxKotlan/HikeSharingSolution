@@ -1,4 +1,5 @@
-﻿using HikeSharingUi.Models;
+﻿using HikeSharingUi.HttpClients;
+using HikeSharingUi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

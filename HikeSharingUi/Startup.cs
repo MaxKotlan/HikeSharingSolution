@@ -24,10 +24,15 @@ namespace HikeSharingUi
         public void ConfigureServices(IServiceCollection services)
         {
             var apiUrl = Configuration.GetValue<string>("parksApi");
-            services.AddHttpClient<ParksHttpClient>(builder => {
+            services.AddHttpClient<HttpClients.ParksHttpClient>(builder => {
                 builder.BaseAddress = new Uri(apiUrl);
             });
+
+            //if parks api is running this
             services.AddScoped<IParkService, HttpParksService>();
+            //if not inmemory
+            services.AddScoped<IParkService, InMemoryParkService>();
+
             services.AddRazorPages();
         }
 

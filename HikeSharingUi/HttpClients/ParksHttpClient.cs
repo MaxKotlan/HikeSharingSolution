@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 
-namespace HikeSharingUi.Services
+namespace HikeSharingUi.HttpClients
 {
     public class ParksHttpClient
     {
