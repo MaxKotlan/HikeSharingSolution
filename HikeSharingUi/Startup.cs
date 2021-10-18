@@ -23,7 +23,11 @@ namespace HikeSharingUi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IParkService, InMemoryParkService>();
+            var apiUrl = Configuration.GetValue<string>("parksApi");
+            services.AddHttpClient<ParksHttpClient>(builder => {
+                builder.BaseAddress = new Uri(apiUrl);
+            });
+            services.AddScoped<IParkService, HttpParksService>();
             services.AddRazorPages();
         }
 

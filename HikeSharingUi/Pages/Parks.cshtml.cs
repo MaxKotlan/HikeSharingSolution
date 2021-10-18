@@ -18,11 +18,11 @@ namespace HikeSharingUi.Pages
             _parks = parks;
         }
 
-        public List<ParkListItemModel> Model { get; set; }
+        public List<ParkListItemModel> Parks { get; set; }
 
-        public async void OnGetAsync()
+        public async Task OnGetAsync()
         {
-            Model = await _parks.GetAllParksAsync();
+            Parks = await _parks.GetAllParksAsync();
         }
     }
 }
