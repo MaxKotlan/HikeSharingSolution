@@ -13,6 +13,13 @@ spec:
     spec:
       containers:
       - name: parks-ui
-        image: hiking-mvc:1.0.0
+        image: hiking-mvc:1.0.1
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name: config-volume
+            mountPath: /appsettings.json
+      volumes:
+        - name: config-volume
+          configMap:
+            name: parks-ui-configmap

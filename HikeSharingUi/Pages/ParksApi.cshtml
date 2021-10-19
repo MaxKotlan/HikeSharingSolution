@@ -1,0 +1,24 @@
+﻿@page
+@model HikeSharingUi.Pages.ParksApiModel
+@{
+}
+
+<feature name="parks-api" negate="false">
+    <h1>The api is enabled </h1>
+</feature>
+<feature name="parks-api" negate="true">
+    <h1>The api is disabled</h1>
+</feature>
+
+<h2>List of Popular Area Parks</h2>
+
+<ul class="list-unstyled">
+    @foreach (var park in Model.Parks)
+    {
+        <li class="alert alert-info">
+            <h3>@park.Description</h3>
+            <p>The @park.Description is at @park.Address. It is Open @park.OpenInformation.</p>
+        </li>
+    }
+
+</ul>

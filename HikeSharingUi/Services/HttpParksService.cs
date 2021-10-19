@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HikeSharingUi.Services
 {
-    public class HttpParksService : IParkService
+    public class HttpParksService : IParkApiService
     {
         private readonly ParksHttpClient _client;
 

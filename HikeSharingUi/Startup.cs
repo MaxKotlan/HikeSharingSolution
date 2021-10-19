@@ -33,7 +33,9 @@ namespace HikeSharingUi
             });
 
             //if parks api is running this
-            services.AddScoped<IParkService, HttpParksService>();
+            services.AddScoped<IParkService, InMemoryParkService>();
+            services.AddScoped<IParkApiService, HttpParksService>();
+
             //if not inmemory
             //services.AddScoped<IParkService, HttpParksService>();
 

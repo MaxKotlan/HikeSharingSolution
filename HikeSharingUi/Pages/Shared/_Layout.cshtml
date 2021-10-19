@@ -24,9 +24,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Parks">Local Parks</a>
-                        </li>
+                        <feature name="parks-in-memory">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Parks">Local Parks</a>
+                            </li>
+                        </feature>
+                        <feature name="parks-api">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/ParksApi">Local Parks</a>
+                            </li>
+                        </feature>
                     </ul>
                 </div>
             </div>
