@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.FeatureManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace HikeSharingUi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddFeatureManagement(Configuration.GetSection("Features"));
+
             var apiUrl = Configuration.GetValue<string>("parksApi");
             services.AddHttpClient<HttpClients.ParksHttpClient>(builder => {
                 builder.BaseAddress = new Uri(apiUrl);
@@ -31,7 +35,7 @@ namespace HikeSharingUi
             //if parks api is running this
             services.AddScoped<IParkService, HttpParksService>();
             //if not inmemory
-            services.AddScoped<IParkService, InMemoryParkService>();
+            //services.AddScoped<IParkService, HttpParksService>();
 
             services.AddRazorPages();
         }

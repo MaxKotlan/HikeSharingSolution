@@ -27,7 +27,7 @@ namespace HikeSharingUi.HttpClients
 
         public async Task<GetParksResponse> GetParksResponseAsync()
         {
-            var response = await _httpClient.GetAsync("/parks");
+            var response = await _httpClient.GetAsync("/hiking/parks");
             var json = await response.Content.ReadAsStringAsync();
             var data = JsonSerializer.Deserialize<GetParksResponse>(json, new JsonSerializerOptions
             {
